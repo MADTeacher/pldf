@@ -1,0 +1,13 @@
+{
+  "lastPlannedStep": null,
+  "planningPhase": "initial",
+  "totalStepsEstimated": null,
+  "stepDependencies": {},
+  "progressMetrics": {
+    "p1Coverage": {"covered": 0, "total": 0, "percentage": 0},
+    "p2Coverage": {"covered": 0, "total": 0, "percentage": 0},
+    "p3Coverage": {"covered": 0, "total": 0, "percentage": 0},
+    "overallProgress": 0
+  }
+}
+

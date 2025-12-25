@@ -1,0 +1,383 @@
+{
+  "resources": {
+    "concept_definition": {
+      "title": "Как определить проблему проекта",
+      "type": "article",
+      "urls": [
+        "https://www.interaction-design.org/literature/article/stage-2-in-the-design-thinking-process-define-the-problem-and-interpret-the-results"
+      ],
+      "description": "Руководство по определению и формулированию проблемы проекта",
+      "stages": ["concept"]
+    },
+    "problem_solving": {
+      "title": "Problem-Solving Framework",
+      "type": "article",
+      "urls": [
+        "https://www.theodinproject.com/lessons/foundations-problem-solving"
+      ],
+      "description": "Бесплатный вводный материал по проблемному мышлению для начинающих разработчиков",
+      "stages": ["concept"]
+    },
+    "user_research": {
+      "title": "User Research Basics",
+      "type": "article",
+      "urls": [
+        "https://www.nngroup.com/articles/ux-research-cheat-sheet/"
+      ],
+      "description": "Основы исследования пользователей и обзор методов UX‑исследований",
+      "stages": ["concept", "design"]
+    },
+    "mvp_guide": {
+      "title": "MVP: Minimum Viable Product Guide",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/product-management/minimum-viable-product"
+      ],
+      "description": "Руководство по созданию минимально жизнеспособного продукта",
+      "stages": ["concept", "plan"]
+    },
+    "success_metrics": {
+      "title": "How to Define Success Metrics",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/product-management/metrics"
+      ],
+      "description": "Как определить измеримые критерии успеха",
+      "stages": ["concept"]
+    },
+    "prioritization": {
+      "title": "Feature Prioritization Techniques",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/product-management/prioritization"
+      ],
+      "description": "Техники приоритизации функций",
+      "stages": ["concept", "plan"]
+    },
+    "platform_selection": {
+      "title": "Choosing the Right Platform",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web"
+      ],
+      "description": "Руководство по выбору платформ для разработки",
+      "stages": ["platforms"]
+    },
+    "platform_rationale": {
+      "title": "Platform Strategy",
+      "type": "article",
+      "urls": [
+        "https://www.interaction-design.org/literature/topics/platform-design"
+      ],
+      "description": "Стратегия выбора и обоснования платформ",
+      "stages": ["platforms"]
+    },
+    "prototyping": {
+      "title": "Prototyping Basics",
+      "type": "article",
+      "urls": [
+        "https://www.interaction-design.org/literature/topics/prototyping"
+      ],
+      "description": "Основы создания прототипов",
+      "stages": ["design"]
+    },
+    "html_basics": {
+      "title": "HTML Tutorial",
+      "type": "documentation",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/HTML"
+      ],
+      "description": "Официальная документация по HTML",
+      "stages": ["design"]
+    },
+    "ui_design": {
+      "title": "UI Design Principles",
+      "type": "article",
+      "urls": [
+        "https://www.interaction-design.org/literature/topics/ui-design"
+      ],
+      "description": "Принципы проектирования пользовательского интерфейса",
+      "stages": ["design"]
+    },
+    "navigation_design": {
+      "title": "Navigation Design Patterns",
+      "type": "article",
+      "urls": [
+        "https://www.nngroup.com/topic/navigation/"
+      ],
+      "description": "Паттерны проектирования навигации",
+      "stages": ["design"]
+    },
+    "html_validation": {
+      "title": "HTML Validator",
+      "type": "tool",
+      "urls": [
+        "https://validator.w3.org/"
+      ],
+      "description": "Онлайн валидатор HTML",
+      "stages": ["design"]
+    },
+    "data_modeling": {
+      "title": "Data Modeling Basics",
+      "type": "article",
+      "urls": [
+        "https://www.lucidchart.com/pages/tutorial/data-flow-diagram"
+      ],
+      "description": "Основы моделирования данных",
+      "stages": ["design", "architecture"]
+    },
+    "api_design": {
+      "title": "REST API Design Best Practices",
+      "type": "article",
+      "urls": [
+        "https://restfulapi.net/"
+      ],
+      "description": "Лучшие практики проектирования REST API",
+      "stages": ["design", "architecture"]
+    },
+    "tech_selection": {
+      "title": "Technology Selection Guide",
+      "type": "article",
+      "urls": [
+        "https://www.codecademy.com/resources/blog/tech-stack"
+      ],
+      "description": "Руководство по выбору технологий",
+      "stages": ["tech"]
+    },
+    "tech_stack": {
+      "title": "Understanding Tech Stacks",
+      "type": "article",
+      "urls": [
+        "https://www.codecademy.com/resources/blog/tech-stack"
+      ],
+      "description": "Понимание технологических стеков",
+      "stages": ["tech"]
+    },
+    "tech_comparison": {
+      "title": "Technology Comparison",
+      "type": "article",
+      "urls": [
+        "https://codeinstitute.net/global/blog/tech-stack-meaning-examples-explanations/"
+      ],
+      "description": "Сравнение технологий и примеры стеков",
+      "stages": ["tech"]
+    },
+    "architecture_patterns": {
+      "title": "Software Architecture Patterns",
+      "type": "article",
+      "urls": [
+        "https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html"
+      ],
+      "description": "Паттерны архитектуры ПО, введение (слоеная, событийная, микросервисы и др.)",
+      "stages": ["architecture"]
+    },
+    "clean_architecture": {
+      "title": "Clean Architecture (Uncle Bob)",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/clean-architecture.md"],
+      "description": "Классическая чистая архитектура с разделением на слои",
+      "stages": ["architecture"]
+    },
+    "layered_architecture": {
+      "title": "Layered Architecture",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/layered-architecture.md"],
+      "description": "Многослойная архитектура: Presentation, Business, Data слои",
+      "stages": ["architecture"]
+    },
+    "hexagonal_architecture": {
+      "title": "Hexagonal Architecture",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/hexagonal-architecture.md"],
+      "description": "Архитектура 'Порты и адаптеры'",
+      "stages": ["architecture"]
+    },
+    "flutter_structure": {
+      "title": "Структура Flutter проектов",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/flutter-structure.md"],
+      "description": "Рекомендации по организации Flutter приложений",
+      "stages": ["architecture"]
+    },
+    "react_structure": {
+      "title": "Структура React проектов",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/react-structure.md"],
+      "description": "Организация React приложений",
+      "stages": ["architecture"]
+    },
+    "backend_structure": {
+      "title": "Структура Backend проектов",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/backend-structure.md"],
+      "description": "Организация серверных приложений",
+      "stages": ["architecture"]
+    },
+    "go_structure": {
+      "title": "Структура Go проектов",
+      "type": "internal_pattern",
+      "paths": ["patterns/clean-architecture/go-structure.md"],
+      "description": "Рекомендации по организации Go приложений",
+      "stages": ["architecture"]
+    },
+    "rest_api_pattern": {
+      "title": "REST API паттерны",
+      "type": "internal_pattern",
+      "paths": ["patterns/data-fetching/rest-api.md"],
+      "description": "Паттерны работы с REST API",
+      "stages": ["design", "architecture"]
+    },
+    "graphql_pattern": {
+      "title": "GraphQL паттерны",
+      "type": "internal_pattern",
+      "paths": ["patterns/data-fetching/graphql.md"],
+      "description": "Паттерны работы с GraphQL",
+      "stages": ["design", "architecture"]
+    },
+    "websocket_pattern": {
+      "title": "WebSocket паттерны",
+      "type": "internal_pattern",
+      "paths": ["patterns/data-fetching/websocket.md"],
+      "description": "Паттерны real-time коммуникации",
+      "stages": ["design", "architecture"]
+    },
+    "state_management": {
+      "title": "Паттерны управления состоянием",
+      "type": "internal_pattern",
+      "paths": ["patterns/state-management/README.md"],
+      "description": "Паттерны управления состоянием для разных технологий",
+      "stages": ["tech", "architecture"]
+    },
+    "error_handling": {
+      "title": "Паттерны обработки ошибок",
+      "type": "internal_pattern",
+      "paths": ["patterns/error-handling/README.md"],
+      "description": "Паттерны обработки ошибок в приложениях",
+      "stages": ["architecture", "implement"]
+    },
+    "auth_patterns": {
+      "title": "Паттерны аутентификации",
+      "type": "internal_pattern",
+      "paths": ["patterns/auth-patterns/README.md"],
+      "description": "Паттерны аутентификации и авторизации",
+      "stages": ["architecture"]
+    },
+    "rest_api": {
+      "title": "REST API Tutorial",
+      "type": "documentation",
+      "urls": [
+        "https://restfulapi.net/"
+      ],
+      "description": "Учебник по REST API",
+      "stages": ["architecture"]
+    },
+    "project_structure": {
+      "title": "Project Structure Best Practices",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools"
+      ],
+      "description": "Лучшие практики организации структуры фронтенд‑проекта и инструменты",
+      "stages": ["architecture"]
+    },
+    "planning": {
+      "title": "Project Planning Guide",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/project-management"
+      ],
+      "description": "Руководство по планированию проекта",
+      "stages": ["plan"]
+    },
+    "dependency_management": {
+      "title": "Dependency Management",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/project-management/epics-stories-themes"
+      ],
+      "description": "Управление зависимостями в проекте через эпики, истории и темы",
+      "stages": ["plan", "implement"]
+    },
+    "testing": {
+      "title": "Software Testing Guide",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing"
+      ],
+      "description": "Руководство по тестированию программного обеспечения",
+      "stages": ["plan", "implement"]
+    },
+    "task_breakdown": {
+      "title": "Task Breakdown Techniques",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/project-management/epics-stories-themes"
+      ],
+      "description": "Техники разбиения задач на эпики, истории и подзадачи",
+      "stages": ["plan"]
+    },
+    "validation": {
+      "title": "Validation Best Practices",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"
+      ],
+      "description": "Лучшие практики валидации форм",
+      "stages": ["implement"]
+    },
+    "debugging": {
+      "title": "Debugging Guide",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools"
+      ],
+      "description": "Руководство по отладке с помощью devtools браузера",
+      "stages": ["implement"]
+    },
+    "progress_tracking": {
+      "title": "Progress Tracking",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/project-management/metrics"
+      ],
+      "description": "Отслеживание прогресса проекта через agile‑метрики",
+      "stages": ["implement"]
+    },
+    "code_review": {
+      "title": "Code Review Best Practices",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/git/tutorials/code-review"
+      ],
+      "description": "Лучшие практики code review",
+      "stages": ["review"]
+    },
+    "continuous_improvement": {
+      "title": "Continuous Improvement",
+      "type": "article",
+      "urls": [
+        "https://www.atlassian.com/agile/tutorials/retrospectives"
+      ],
+      "description": "Непрерывное улучшение через ретроспективы",
+      "stages": ["review"]
+    },
+    "getting_unstuck": {
+      "title": "Getting Unstuck in Development",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools"
+      ],
+      "description": "Как справиться с трудностями в веб‑разработке с помощью инструментов разработчика",
+      "stages": ["concept", "platforms", "design", "tech", "architecture", "plan", "implement", "review"]
+    },
+    "validation_guide": {
+      "title": "Validation Guide",
+      "type": "article",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"
+      ],
+      "description": "Руководство по валидации форм",
+      "stages": ["concept", "platforms", "design", "tech", "architecture", "plan", "implement"]
+    }
+  }
+}

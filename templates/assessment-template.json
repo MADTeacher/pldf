@@ -1,0 +1,15 @@
+{
+  "assessments": [],
+  "statistics": {
+    "totalAttempts": 0,
+    "averageScore": 0,
+    "byStage": {},
+    "byTopic": {},
+    "progress": {
+      "improvingTopics": [],
+      "stagnantTopics": [],
+      "decliningTopics": []
+    }
+  }
+}
+

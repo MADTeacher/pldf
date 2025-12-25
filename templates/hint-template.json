@@ -1,0 +1,16 @@
+{
+  "stage": "concept",
+  "category": "validation",
+  "hint": {
+    "id": "hint_id",
+    "message": "Описание ошибки",
+    "hint": "Текст подсказки с наводящими вопросами",
+    "resources": ["resource_id_1", "resource_id_2"]
+  },
+  "contextual": {
+    "trigger": "условие для контекстной подсказки",
+    "hint": "Текст контекстной подсказки",
+    "resources": []
+  }
+}
+
