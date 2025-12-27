@@ -1,6 +1,18 @@
 # Build directory
 build/
 
+# Python
+src/pldf_cli/__pycache__/
+*.py[cod]
+*$py.class
+__pycache__/
+*.egg-info/
+dist/
+.Python
+
+# GitHub Actions release artifacts
+.genreleases/
+
 # macOS
 .DS_Store
 **/.DS_Store

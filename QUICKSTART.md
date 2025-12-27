@@ -4,6 +4,25 @@
 
 **PLDF фокусируется на понимании "ПОЧЕМУ" принимаются решения, а не только на технической реализации.**
 
+## Установка PLDF CLI
+
+Перед началом работы необходимо установить PLDF CLI:
+
+```bash
+# Постоянная установка (рекомендуется)
+uv tool install pldf-cli --from git+https://github.com/MADTeacher/pldf.git
+
+# Инициализация проекта
+pldf init my-project --ai cursor-agent
+
+# Или в текущей директории
+pldf init . --ai cursor-agent
+# или
+pldf init --here --ai sourcecraft
+```
+
+Доступные AI агенты: `cursor-agent`, `opencode`, `kilocode`, `roo`, `sourcecraft`
+
 ## Способы вызова команд
 
 Все команды PLDF можно вызывать двумя способами:

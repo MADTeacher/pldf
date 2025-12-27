@@ -4,6 +4,9 @@ handoffs:
   - label: Начать реализацию
     agent: pldf.implement
     prompt: Начни реализацию с шага [N]
+scripts:
+  sh:
+  ps:
 ---
 
 ## Пользовательский ввод

@@ -2,6 +2,67 @@
 
 **PLDF (Progressive Learning Development Framework)** - это образовательный фреймворк для обучения студентов разработке программного обеспечения с помощью LLM-агентов. В отличие от других фреймворков, PLDF фокусируется не только на технической реализации, но и на образовательном процессе, помогая студентам понимать **ПОЧЕМУ** принимаются те или иные решения.
 
+## Установка
+
+### Требования
+
+- Python 3.11+
+- [uv](https://docs.astral.sh/uv/) для управления пакетами
+- Git (опционально, рекомендуется)
+- Один из поддерживаемых AI агентов
+
+### Вариант 1: Постоянная установка (рекомендуется)
+
+Установите один раз и используйте везде:
+
+```bash
+uv tool install pldf-cli --from git+https://github.com/MADTeacher/pldf.git
+```
+
+Затем используйте инструмент напрямую:
+
+```bash
+# Создать новый проект
+pldf init <PROJECT_NAME>
+
+# Или инициализировать в существующем проекте
+pldf init . --ai cursor-agent
+# или
+pldf init --here --ai cursor-agent
+
+# Проверить установленные инструменты
+pldf check
+```
+
+Для обновления PLDF:
+
+```bash
+uv tool install pldf-cli --force --from git+https://github.com/MADTeacher/pldf.git
+```
+
+### Вариант 2: Одноразовое использование
+
+Запустите напрямую без установки:
+
+```bash
+uvx --from git+https://github.com/MADTeacher/pldf.git pldf init <PROJECT_NAME>
+```
+
+**Преимущества постоянной установки:**
+- Инструмент остается установленным и доступным в PATH
+- Лучшее управление инструментами с `uv tool list`, `uv tool upgrade`, `uv tool uninstall`
+- Более чистая конфигурация shell
+
+## Поддерживаемые AI агенты
+
+| Агент | Поддержка | Директория | Примечания |
+|-------|-----------|------------|------------|
+| [Cursor](https://cursor.sh/) | ✅ | `.cursor/commands/` | IDE-based |
+| [opencode](https://opencode.ai/) | ✅ | `.opencode/command/` | CLI tool required |
+| [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | `.kilocode/rules/` | IDE-based |
+| [Roo Code](https://roocode.com/) | ✅ | `.roo/rules/` | IDE-based |
+| [SourceCraft](https://sourcecraft.dev/) | ✅ | `.codeassistant/commands/` | IDE-based |
+
 ### Особенности
 
 - ✅ Начинает с концепции проекта, а не с технических ограничений

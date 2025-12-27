@@ -4,6 +4,9 @@ handoffs:
   - label: Создать архитектуру
     agent: pldf.architecture
     prompt: Создай архитектуру проекта на основе стека
+scripts:
+  sh:
+  ps:
 ---
 
 ## Пользовательский ввод
