@@ -27,11 +27,12 @@ mkdir -p "$GENRELEASES_DIR"
 rm -rf "$GENRELEASES_DIR"/* || true
 
 rewrite_paths() {
+  # Skip lines that already have .pldf/ before the target directory to prevent duplication
   sed -E \
-    -e 's@(/?)memory/@.pldf/memory/@g' \
-    -e 's@(/?)scripts/@.pldf/scripts/@g' \
-    -e 's@(/?)templates/@.pldf/templates/@g' \
-    -e 's@(/?)hints/@.pldf/hints/@g'
+    -e '/\.pldf\/memory\//!s@(^|[[:space:]]|`)(/?)memory/@\1.pldf/memory/@g' \
+    -e '/\.pldf\/scripts\//!s@(^|[[:space:]]|`)(/?)scripts/@\1.pldf/scripts/@g' \
+    -e '/\.pldf\/templates\//!s@(^|[[:space:]]|`)(/?)templates/@\1.pldf/templates/@g' \
+    -e '/\.pldf\/hints\//!s@(^|[[:space:]]|`)(/?)hints/@\1.pldf/hints/@g'
 }
 
 generate_commands() {
