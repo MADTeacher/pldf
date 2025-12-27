@@ -13,6 +13,9 @@ fi
 NEW_VERSION="$1"
 LAST_TAG="$2"
 
+# Ensure .genreleases directory exists
+mkdir -p .genreleases
+
 # Get commits since last tag
 if [ "$LAST_TAG" = "v0.0.0" ]; then
   # Check how many commits we have and use that as the limit
@@ -26,8 +29,8 @@ else
   COMMITS=$(git log --oneline --pretty=format:"- %s" $LAST_TAG..HEAD)
 fi
 
-# Create release notes
-cat > release_notes.md << EOF
+# Create release notes in .genreleases directory
+cat > .genreleases/release-notes.txt << EOF
 This is the latest set of releases that you can use with your agent of choice. We recommend using the Specify CLI to scaffold your projects, however you can download these independently and manage them yourself.
 
 ## Changelog
@@ -37,4 +40,4 @@ $COMMITS
 EOF
 
 echo "Generated release notes:"
-cat release_notes.md
+cat .genreleases/release-notes.txt
