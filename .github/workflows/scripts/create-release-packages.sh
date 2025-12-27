@@ -46,8 +46,9 @@ generate_commands() {
     file_content=$(tr -d '\r' < "$template")
     
     # Extract description and script command from YAML frontmatter
-    description=$(printf '%s\n' "$file_content" | awk '/^description:/ {sub(/^description:[[:space:]]*/, ""); print; exit}')
-    script_command=$(printf '%s\n' "$file_content" | awk -v sv="$script_variant" '/^[[:space:]]*'"$script_variant"':[[:space:]]*/ {sub(/^[[:space:]]*'"$script_variant"':[[:space:]]*/, ""); print; exit}')
+    # Use grep + sed instead of awk with pipe to avoid broken pipe errors
+    description=$(grep -m1 '^description:' <<< "$file_content" | sed 's/^description:[[:space:]]*//' || true)
+    script_command=$(grep -m1 "^[[:space:]]*${script_variant}:" <<< "$file_content" | sed "s/^[[:space:]]*${script_variant}:[[:space:]]*//" || true)
     
     if [[ -z $script_command ]]; then
       # Empty script command is OK for PLDF (most commands don't use external scripts)
@@ -55,19 +56,20 @@ generate_commands() {
     fi
     
     # Replace {SCRIPT} placeholder with the script command
-    body=$(printf '%s\n' "$file_content" | sed "s|{SCRIPT}|${script_command}|g")
+    body=$(sed "s|{SCRIPT}|${script_command}|g" <<< "$file_content")
     
     # Remove the scripts: section from frontmatter while preserving YAML structure
-    body=$(printf '%s\n' "$body" | awk '
+    # Use here-string instead of pipe to avoid broken pipe errors
+    body=$(awk '
       /^---$/ { print; if (++dash_count == 1) in_frontmatter=1; else in_frontmatter=0; next }
       in_frontmatter && /^scripts:$/ { skip_scripts=1; next }
       in_frontmatter && /^[a-zA-Z].*:/ && skip_scripts { skip_scripts=0 }
       in_frontmatter && skip_scripts && /^[[:space:]]/ { next }
       { print }
-    ')
+    ' <<< "$body")
     
     # Apply other substitutions
-    body=$(printf '%s\n' "$body" | sed "s/{ARGS}/$arg_format/g" | sed "s/__AGENT__/$agent/g" | rewrite_paths)
+    body=$(sed "s/{ARGS}/$arg_format/g; s/__AGENT__/$agent/g" <<< "$body" | rewrite_paths)
     
     case $ext in
       md)
