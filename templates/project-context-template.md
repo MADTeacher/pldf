@@ -8,7 +8,7 @@
 
 ## Текущий статус
 
-- **Текущий этап**: [concept|design|tech|architecture|plan|implement|security|review]
+- **Текущий этап**: [concept|design|tech|architecture|deploy|plan|implement|security|review]
 - **Текущий шаг реализации**: [step-NN-name или N/A]
 - **Прогресс реализации**: [X/Y шагов завершено]
 
@@ -35,6 +35,11 @@
 - **Файл**: `.pldf/architecture.md`
 - **Статус**: [Не начат / В процессе / Завершен]
 - **Decision Log**: См. раздел "Decision Log" в `.pldf/architecture.md`
+
+#### Этап 3.5: Деплой
+- **Файл**: `.pldf/deployment.md`
+- **Статус**: [Не начат / В процессе / Завершен]
+- **Decision Log**: См. раздел "Decision Log" в `.pldf/deployment.md`
 
 #### Этап 4: План реализации
 - **Файл**: `.pldf/implementation-plan.md`

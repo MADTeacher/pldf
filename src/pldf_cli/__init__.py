@@ -1119,8 +1119,9 @@ def init(
     steps_lines.append("   2.2 [cyan]/pldf.design[/] - Design UI with prototypes")
     steps_lines.append("   2.3 [cyan]/pldf.tech[/] - Choose technology stack")
     steps_lines.append("   2.4 [cyan]/pldf.architecture[/] - Design architecture")
-    steps_lines.append("   2.5 [cyan]/pldf.plan[/] - Create implementation plan")
-    steps_lines.append("   2.6 [cyan]/pldf.implement[/] - Execute implementation")
+    steps_lines.append("   2.5 [cyan]/pldf.deploy[/] - Plan deployment (environments, CI/CD, secrets, observability)")
+    steps_lines.append("   2.6 [cyan]/pldf.plan[/] - Create implementation plan")
+    steps_lines.append("   2.7 [cyan]/pldf.implement[/] - Execute implementation")
 
     steps_panel = Panel("\n".join(steps_lines), title="Next Steps", border_style="cyan", padding=(1,2))
     console.print()
@@ -1136,6 +1137,15 @@ def init(
     enhancements_panel = Panel("\n".join(enhancement_lines), title="Learning Enhancement Commands", border_style="cyan", padding=(1,2))
     console.print()
     console.print(enhancements_panel)
+
+    safety_lines = [
+        "Quality & safety commands [bright_black](recommended)[/bright_black]",
+        "",
+        f"○ [cyan]/pldf.security[/] [bright_black](optional)[/bright_black] - Security audit (OWASP/privacy/dependencies/code)"
+    ]
+    safety_panel = Panel("\n".join(safety_lines), title="Quality & Safety Commands", border_style="cyan", padding=(1,2))
+    console.print()
+    console.print(safety_panel)
 
 @app.command()
 def check():
