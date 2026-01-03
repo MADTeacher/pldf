@@ -202,6 +202,45 @@
           "resources": ["continuous_improvement"]
         }
       }
+    },
+    "security": {
+      "validationHints": {
+        "owasp_top10_failed": {
+          "message": "Найдены уязвимости из OWASP Top 10",
+          "hint": "Проанализируйте найденные уязвимости. Какие из них критичны для вашего проекта? Начните с исправления критичных проблем.",
+          "resources": ["owasp_top10", "secure_coding"]
+        },
+        "owasp_asvs_failed": {
+          "message": "Найдены проблемы соответствия OWASP ASVS",
+          "hint": "Изучите требования OWASP ASVS для вашего уровня. Какие категории требуют улучшения?",
+          "resources": ["owasp_asvs", "secure_coding"]
+        },
+        "privacy_law_violations": {
+          "message": "Найдены нарушения законодательства по персональным данным",
+          "hint": "Изучите требования законодательства. Какие персональные данные обрабатывает ваш проект? Как они защищены?",
+          "resources": ["152fz", "gdpr"]
+        },
+        "vulnerable_dependencies": {
+          "message": "Обнаружены уязвимости в зависимостях",
+          "hint": "Проверьте, какие зависимости имеют известные уязвимости. Можно ли их обновить до безопасных версий?",
+          "resources": ["dependency_security"]
+        },
+        "secrets_in_code": {
+          "message": "Обнаружены секреты в коде",
+          "hint": "Секреты (API ключи, пароли, токены) не должны храниться в коде. Переместите их в переменные окружения или secrets manager.",
+          "resources": ["secure_coding", "secrets_management"]
+        },
+        "insecure_authentication": {
+          "message": "Проблемы с реализацией аутентификации",
+          "hint": "Проверьте реализацию аутентификации: используются ли стойкие алгоритмы хеширования паролей? Есть ли защита от brute force?",
+          "resources": ["secure_coding", "auth_patterns"]
+        },
+        "injection_vulnerabilities": {
+          "message": "Обнаружены уязвимости типа Injection",
+          "hint": "Проверьте использование пользовательского ввода в запросах. Используйте параметризованные запросы и валидацию входных данных.",
+          "resources": ["secure_coding", "owasp_top10"]
+        }
+      }
     }
   },
   "generalHints": {

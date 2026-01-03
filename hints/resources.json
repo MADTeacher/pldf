@@ -378,6 +378,68 @@
       ],
       "description": "Руководство по валидации форм",
       "stages": ["concept", "platforms", "design", "tech", "architecture", "plan", "implement"]
+    },
+    "owasp_top10": {
+      "title": "OWASP Top 10",
+      "type": "internal_pattern",
+      "paths": ["security/owasp-top10.md"],
+      "description": "База знаний по OWASP Top 10 - 10 наиболее критичных рисков безопасности веб-приложений",
+      "stages": ["security"]
+    },
+    "owasp_full_list": {
+      "title": "OWASP Full List",
+      "type": "internal_pattern",
+      "urls": [
+        "https://cheatsheetseries.owasp.org/"
+      ],
+      "description": "Полная база знаний по OWASP",
+      "stages": ["security"]
+    },
+    "owasp_asvs": {
+      "title": "OWASP ASVS",
+      "type": "internal_pattern",
+      "paths": ["security/owasp-asvs.md"],
+      "description": "База знаний по OWASP Application Security Verification Standard",
+      "stages": ["security"]
+    },
+    "152fz": {
+      "title": "152-ФЗ О персональных данных",
+      "type": "internal_pattern",
+      "paths": ["security/privacy-laws.md"],
+      "description": "Федеральный закон о персональных данных РФ - требования и проверки",
+      "stages": ["security"]
+    },
+    "gdpr": {
+      "title": "GDPR - General Data Protection Regulation",
+      "type": "internal_pattern",
+      "paths": ["security/privacy-laws.md"],
+      "description": "Общий регламент по защите данных ЕС - требования и проверки",
+      "stages": ["security"]
+    },
+    "secure_coding": {
+      "title": "Secure Coding Patterns",
+      "type": "internal_pattern",
+      "paths": ["security/security-patterns.md"],
+      "description": "Паттерны безопасного кодирования - примеры правильной реализации безопасности",
+      "stages": ["security", "implement"]
+    },
+    "dependency_security": {
+      "title": "Dependency Security",
+      "type": "article",
+      "urls": [
+        "https://owasp.org/www-project-dependency-check/"
+      ],
+      "description": "Безопасность зависимостей - как проверять и обновлять уязвимые пакеты",
+      "stages": ["security", "implement"]
+    },
+    "secrets_management": {
+      "title": "Secrets Management",
+      "type": "article",
+      "urls": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html"
+      ],
+      "description": "Управление секретами - как безопасно хранить API ключи, пароли и токены",
+      "stages": ["security", "implement"]
     }
   }
 }
