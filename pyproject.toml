@@ -1,6 +1,6 @@
 [project]
 name = "pldf-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "CLI tool for Progressive Learning Development Framework (PLDF) - an educational framework for learning software development with LLM agents"
 requires-python = ">=3.11"
 license = {text = "MIT"}

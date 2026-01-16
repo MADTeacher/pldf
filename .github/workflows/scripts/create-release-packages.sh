@@ -127,13 +127,16 @@ build_variant() {
     sourcecraft)
       mkdir -p "$base_dir/.codeassistant/commands"
       generate_commands sourcecraft md "\$ARGUMENTS" "$base_dir/.codeassistant/commands" "$script" ;;
+    copilot)
+      mkdir -p "$base_dir/.github/agents"
+      generate_commands copilot md "\$ARGUMENTS" "$base_dir/.github/agents" "$script" ;;
   esac
   ( cd "$base_dir" && zip -r "../pldf-template-${agent}-${script}-${NEW_VERSION}.zip" . )
   echo "Created $GENRELEASES_DIR/pldf-template-${agent}-${script}-${NEW_VERSION}.zip"
 }
 
 # Determine agent list
-ALL_AGENTS=(cursor-agent opencode kilocode roo sourcecraft)
+ALL_AGENTS=(cursor-agent opencode kilocode roo sourcecraft copilot)
 ALL_SCRIPTS=(sh ps)
 
 norm_list() {

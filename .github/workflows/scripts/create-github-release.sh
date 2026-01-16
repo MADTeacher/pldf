@@ -24,7 +24,9 @@ gh release create "$VERSION" \
   .genreleases/pldf-template-roo-sh-"$VERSION".zip \
   .genreleases/pldf-template-roo-ps-"$VERSION".zip \
   .genreleases/pldf-template-sourcecraft-sh-"$VERSION".zip \
-  .genreleases/pldf-template-sourcecraft-ps-"$VERSION".zip
+  .genreleases/pldf-template-sourcecraft-ps-"$VERSION".zip \
+  .genreleases/pldf-template-copilot-sh-"$VERSION".zip \
+  .genreleases/pldf-template-copilot-ps-"$VERSION".zip
 
 echo "Created GitHub release $VERSION"
 
