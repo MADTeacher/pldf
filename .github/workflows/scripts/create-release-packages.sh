@@ -6,7 +6,7 @@ set -euo pipefail
 # Usage: .github/workflows/scripts/create-release-packages.sh <version>
 #   Version argument should include leading 'v'.
 #   Optionally set AGENTS and/or SCRIPTS env vars to limit what gets built.
-#     AGENTS  : space or comma separated subset of: cursor-agent opencode kilocode roo sourcecraft (default: all)
+#     AGENTS  : space or comma separated subset of: cursor-agent opencode kilocode roo sourcecraft copilot (default: all)
 #     SCRIPTS : space or comma separated subset of: sh ps (default: both)
 
 if [[ $# -ne 1 ]]; then
@@ -40,7 +40,7 @@ generate_commands() {
   mkdir -p "$output_dir"
   for template in templates/commands/*.md; do
     [[ -f "$template" ]] || continue
-    local name description script_command body
+    local name description script_command agent_script_command body
     name=$(basename "$template" .md)
     
     # Normalize line endings
@@ -56,14 +56,30 @@ generate_commands() {
       script_command=""
     fi
     
+    # Extract agent_script command from YAML frontmatter if present
+    agent_script_command=$(awk '
+      /^agent_scripts:$/ { in_agent_scripts=1; next }
+      in_agent_scripts && /^[[:space:]]*'"$script_variant"':[[:space:]]*/ {
+        sub(/^[[:space:]]*'"$script_variant"':[[:space:]]*/, "")
+        print
+        exit
+      }
+      in_agent_scripts && /^[a-zA-Z]/ { in_agent_scripts=0 }
+    ' <<< "$file_content" || true)
+    
     # Replace {SCRIPT} placeholder with the script command
     body=$(sed "s|{SCRIPT}|${script_command}|g" <<< "$file_content")
     
-    # Remove the scripts: section from frontmatter while preserving YAML structure
-    # Use here-string instead of pipe to avoid broken pipe errors
+    # Replace {AGENT_SCRIPT} placeholder with the agent script command if found
+    if [[ -n $agent_script_command ]]; then
+      body=$(sed "s|{AGENT_SCRIPT}|${agent_script_command}|g" <<< "$body")
+    fi
+    
+    # Remove the scripts: and agent_scripts: sections from frontmatter while preserving YAML structure
     body=$(awk '
       /^---$/ { print; if (++dash_count == 1) in_frontmatter=1; else in_frontmatter=0; next }
       in_frontmatter && /^scripts:$/ { skip_scripts=1; next }
+      in_frontmatter && /^agent_scripts:$/ { skip_scripts=1; next }
       in_frontmatter && /^[a-zA-Z].*:/ && skip_scripts { skip_scripts=0 }
       in_frontmatter && skip_scripts && /^[[:space:]]/ { next }
       { print }
@@ -75,7 +91,30 @@ generate_commands() {
     case $ext in
       md)
         echo "$body" > "$output_dir/$name.$ext" ;;
+      agent.md)
+        # For Copilot, use pldf. prefix like speckit. in the example
+        echo "$body" > "$output_dir/pldf.$name.$ext" ;;
     esac
+  done
+}
+
+generate_copilot_prompts() {
+  local agents_dir=$1 prompts_dir=$2
+  mkdir -p "$prompts_dir"
+  
+  # Generate a .prompt.md file for each .agent.md file
+  for agent_file in "$agents_dir"/pldf.*.agent.md; do
+    [[ -f "$agent_file" ]] || continue
+    
+    local basename=$(basename "$agent_file" .agent.md)
+    local prompt_file="$prompts_dir/${basename}.prompt.md"
+    
+    # Create prompt file with agent frontmatter
+    cat > "$prompt_file" <<EOF
+---
+agent: ${basename}
+---
+EOF
   done
 }
 
@@ -129,7 +168,12 @@ build_variant() {
       generate_commands sourcecraft md "\$ARGUMENTS" "$base_dir/.codeassistant/commands" "$script" ;;
     copilot)
       mkdir -p "$base_dir/.github/agents"
-      generate_commands copilot md "\$ARGUMENTS" "$base_dir/.github/agents" "$script" ;;
+      generate_commands copilot agent.md "\$ARGUMENTS" "$base_dir/.github/agents" "$script"
+      # Generate companion prompt files
+      generate_copilot_prompts "$base_dir/.github/agents" "$base_dir/.github/prompts"
+      # Create VS Code workspace settings
+      mkdir -p "$base_dir/.vscode"
+      [[ -f templates/vscode-settings.json ]] && cp templates/vscode-settings.json "$base_dir/.vscode/settings.json" ;;
   esac
   ( cd "$base_dir" && zip -r "../pldf-template-${agent}-${script}-${NEW_VERSION}.zip" . )
   echo "Created $GENRELEASES_DIR/pldf-template-${agent}-${script}-${NEW_VERSION}.zip"

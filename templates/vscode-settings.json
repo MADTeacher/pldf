@@ -1,0 +1,19 @@
+{
+    "chat.promptFilesRecommendations": {
+        "pldf.concept": true,
+        "pldf.design": true,
+        "pldf.tech": true,
+        "pldf.architecture": true,
+        "pldf.plan": true,
+        "pldf.implement": true,
+        "pldf.test": true,
+        "pldf.deploy": true,
+        "pldf.review": true,
+        "pldf.security": true,
+        "pldf.hint": true
+    },
+    "chat.tools.terminal.autoApprove": {
+        ".pldf/scripts/bash/": true,
+        ".pldf/scripts/powershell/": true
+    }
+}
