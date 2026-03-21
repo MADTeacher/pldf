@@ -6,7 +6,7 @@ set -euo pipefail
 # Usage: .github/workflows/scripts/create-release-packages.sh <version>
 #   Version argument should include leading 'v'.
 #   Optionally set AGENTS and/or SCRIPTS env vars to limit what gets built.
-#     AGENTS  : space or comma separated subset of: cursor-agent opencode kilocode roo sourcecraft copilot (default: all)
+#     AGENTS  : space or comma separated subset of: cursor-agent opencode qwen kilocode roo sourcecraft copilot (default: all)
 #     SCRIPTS : space or comma separated subset of: sh ps (default: both)
 
 if [[ $# -ne 1 ]]; then
@@ -85,8 +85,11 @@ generate_commands() {
       { print }
     ' <<< "$body")
     
-    # Apply other substitutions
-    body=$(sed "s/{ARGS}/$arg_format/g; s/__AGENT__/$agent/g" <<< "$body" | rewrite_paths)
+    # Apply agent-specific substitutions for legacy and new argument placeholders.
+    body=${body//\{ARGS\}/$arg_format}
+    body=${body//\$ARGUMENTS/$arg_format}
+    body=${body//__AGENT__/$agent}
+    body=$(printf '%s' "$body" | rewrite_paths)
     
     case $ext in
       md)
@@ -157,6 +160,9 @@ build_variant() {
     opencode)
       mkdir -p "$base_dir/.opencode/command"
       generate_commands opencode md "\$ARGUMENTS" "$base_dir/.opencode/command" "$script" ;;
+    qwen)
+      mkdir -p "$base_dir/.qwen/commands"
+      generate_commands qwen md "{{args}}" "$base_dir/.qwen/commands" "$script" ;;
     kilocode)
       mkdir -p "$base_dir/.kilocode/rules"
       generate_commands kilocode md "\$ARGUMENTS" "$base_dir/.kilocode/rules" "$script" ;;
@@ -180,7 +186,7 @@ build_variant() {
 }
 
 # Determine agent list
-ALL_AGENTS=(cursor-agent opencode kilocode roo sourcecraft copilot)
+ALL_AGENTS=(cursor-agent opencode qwen kilocode roo sourcecraft copilot)
 ALL_SCRIPTS=(sh ps)
 
 norm_list() {
@@ -227,4 +233,3 @@ done
 
 echo "Archives in $GENRELEASES_DIR:"
 ls -1 "$GENRELEASES_DIR"/pldf-template-*-"${NEW_VERSION}".zip
-

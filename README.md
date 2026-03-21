@@ -59,6 +59,7 @@ uvx --from git+https://github.com/MADTeacher/pldf.git pldf init <PROJECT_NAME>
 |-------|-----------|------------|------------|
 | [Cursor](https://cursor.sh/) | ✅ | `.cursor/commands/` | IDE-based |
 | [opencode](https://opencode.ai/) | ✅ | `.opencode/command/` | CLI tool required |
+| [Qwen Code](https://github.com/QwenLM/qwen-code) | ✅ | `.qwen/commands/` | CLI tool required |
 | [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | `.kilocode/rules/` | IDE-based |
 | [Roo Code](https://roocode.com/) | ✅ | `.roo/rules/` | IDE-based |
 | [SourceCraft](https://sourcecraft.dev/) | ✅ | `.codeassistant/commands/` | IDE-based |

@@ -19,6 +19,8 @@ gh release create "$VERSION" \
   .genreleases/pldf-template-cursor-agent-ps-"$VERSION".zip \
   .genreleases/pldf-template-opencode-sh-"$VERSION".zip \
   .genreleases/pldf-template-opencode-ps-"$VERSION".zip \
+  .genreleases/pldf-template-qwen-sh-"$VERSION".zip \
+  .genreleases/pldf-template-qwen-ps-"$VERSION".zip \
   .genreleases/pldf-template-kilocode-sh-"$VERSION".zip \
   .genreleases/pldf-template-kilocode-ps-"$VERSION".zip \
   .genreleases/pldf-template-roo-sh-"$VERSION".zip \
@@ -29,4 +31,3 @@ gh release create "$VERSION" \
   .genreleases/pldf-template-copilot-ps-"$VERSION".zip
 
 echo "Created GitHub release $VERSION"
-

@@ -135,7 +135,7 @@ def _format_rate_limit_error(status_code: int, headers: httpx.Headers, url: str)
     return "\n".join(lines)
 
 
-# Agent configuration with name, folder, install URL, and CLI tool requirement
+# Agent configuration with name, folder, command subdirectory, install URL, and CLI tool requirement
 AGENT_CONFIG = {
     "cursor-agent": {
         "name": "Cursor",
@@ -147,6 +147,13 @@ AGENT_CONFIG = {
         "name": "opencode",
         "folder": ".opencode/",
         "install_url": "https://opencode.ai",
+        "requires_cli": True,
+    },
+    "qwen": {
+        "name": "Qwen Code",
+        "folder": ".qwen/",
+        "commands_subdir": "commands",
+        "install_url": "https://github.com/QwenLM/qwen-code",
         "requires_cli": True,
     },
     "kilocode": {
@@ -1034,7 +1041,7 @@ def init(
     ai_assistant: str = typer.Option(
         None,
         "--ai",
-        help="AI assistant to use: cursor-agent, opencode, kilocode, roo, sourcecraft, or copilot",
+        help="AI assistant to use: cursor-agent, opencode, qwen, kilocode, roo, sourcecraft, or copilot",
     ),
     script_type: str = typer.Option(
         None, "--script", help="Script type to use: sh or ps"
@@ -1083,6 +1090,7 @@ def init(
         pldf init my-project
         pldf init my-project --ai cursor-agent
         pldf init my-project --ai opencode --no-git
+        pldf init my-project --ai qwen
         pldf init . --ai cursor-agent         # Initialize in current directory
         pldf init --here --ai sourcecraft    # Alternative syntax for current directory
         pldf init --here --force  # Skip confirmation when current directory not empty
